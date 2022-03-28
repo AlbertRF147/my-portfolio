@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { useState, useEffect } from 'react'
+import Projects from './components/Projects'
+import MenuItem from './components/MenuItem'
+import AboutMe from './components/AboutMe'
+import menuItems from './menuItems'
+import WebFont from 'webfontloader'
 
 function App() {
+  const unClickAll = []
+
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ['Ubuntu', 'Roboto', 'Open Sans']
+      }
+    })
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        menuItems.map((menuItem, index) => {
+          return <MenuItem
+            {...menuItem}
+            key={index}
+            index={index}
+            unClickAll={unClickAll}
+            first={index === 0}
+            last={index === menuItems.length - 1}
+          />
+        })
+      }
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

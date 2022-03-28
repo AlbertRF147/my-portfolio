@@ -1,0 +1,231 @@
+@mobile: ~'(max-width: 414px)';
+@menuItemNameHeight: 20px;
+@menuItemNamePd: 10px;
+@normalSpace: 2rem;
+
+html, body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root, .App {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.menu-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Ubuntu';
+  transition: all .2s ease-out;
+  background: white;
+  position: relative;
+
+  &.first {
+    border-bottom: 0;
+  }
+
+  &.last {
+    border-top: 0;
+  }
+
+  .name {
+    cursor: pointer;
+    text-transform: uppercase;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    height: @menuItemNameHeight;
+    z-index: 1000;
+  }
+
+  .content {
+    text-align: center;
+    position: absolute;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - (@menuItemNameHeight + @menuItemNamePd * 2) - 4rem);
+    overflow: scroll;
+    padding: 2rem 0;
+
+    &.no-padding {
+      padding: 0;
+      height: calc(100% - (@menuItemNameHeight + @menuItemNamePd * 2));
+    }
+
+    // Hide scrollbar
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+.about-me {
+  &-title {
+    margin-top: 0;
+  }
+
+  &-content {
+    font-size: 1.3rem;
+    text-align: justify;
+    margin: 0 25vw;
+    font-family: 'Open Sans';
+    
+    @media @mobile {
+      margin: 0 @normalSpace;
+    }
+  }
+
+  &-avatar {
+    float: left;
+    shape-outside: circle();
+    max-height: 400px;
+    margin-right: 1rem;
+    background-image: url(https://ca.slack-edge.com/T025J1W63-U02JM7G74CD-25580d9ab8a3-512);
+    border-radius: 500px;
+    background-size: cover;
+    height: 250px;
+    width: 250px;
+    shape-margin: 10px;
+
+    @media @mobile {
+      height: calc(250px - 80px);
+      width: calc(250px - 80px);
+    }
+  }
+}
+
+.project {
+  position: relative;
+  border: 1px solid;
+  border-radius: 6px;
+  overflow: hidden;
+  background-size: cover;
+  width: 70vw;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: @normalSpace 0 0 0;
+  cursor: pointer;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @media @mobile {
+    width: 85vw;
+  }
+
+  &-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-content {
+    padding: 12px;
+    color: white;
+    background: black;
+    opacity: 0.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all .07s linear;
+
+    &__name {
+    }
+    &__description {
+      text-align: justify;
+    }
+  }
+}
+
+.timeline {
+  // Hide scrollbar
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.progress {
+  width: calc(100vw/5 * 2);
+  height: 15px;
+  background: #e1e4e8;
+  border-radius: 3px;
+  overflow: hidden;
+  
+  .progress-bar {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg,#ffd33d,#ea4aaa 17%,#b34bff 34%,#01feff 51%,#ffd33d 68%,#ea4aaa 85%,#b34bff);
+    background-size: 300% 100%;
+    animation: progress-animation 2s linear infinite;
+  }
+}
+
+.skills {
+  // width: 100%;
+  box-shadow: 1px 1px 6px lightgrey;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  max-width: 700px;
+
+  &-container {
+    padding: 0 20px 20px 20px;
+  }
+
+  .title {
+    padding: 10px 10px 20px;
+    font-size: 2rem;
+  }
+
+  .skill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > * {
+      display: inline-block;
+    }
+
+    &-name {
+      font-size: 1.5rem;
+      width: calc(100vw/4);
+      text-align: right;
+      padding-right: 30px;
+    }
+  }
+}
+    
+@keyframes progress-animation {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0;
+  }
+}
