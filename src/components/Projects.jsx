@@ -12,6 +12,7 @@ export default function Projects (props) {
         name='Portfolio'
         description='Recently I updated my portfolio to give it a brush up and to make it mobile friendly. I used React and a few other libraries and frameworks like Pure CSS and react-timeline. There is also an API developed using express and nodemailer that uses Gmail Google APIs to send me and email in case you wish to contact me 😉 .'
         image={codeImage}
+        link='https://github.com/AlbertRF147/my-portfolio'
       />
       <Project
         name='Multistep Form'
