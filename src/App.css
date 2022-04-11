@@ -253,4 +253,7 @@ body {
     min-height: 100px;
   }
 }
+.get-in-touch button[type=submit] {
+  margin-bottom: 20px;
+}
 /*# sourceMappingURL=App.css.map */

@@ -1,4 +1,6 @@
+import React from 'react'
 import { useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 const ThankYou = props => (
   <div className='thank-you'>
@@ -9,6 +11,8 @@ const ThankYou = props => (
 )
 
 const Form = props => {
+  const { recaptchaRef } = props
+
   return (
     <form onSubmit={props.sendEmail} className='pure-form'>
       <input className='pure-input-1' onChange={e => props.setEmail(e.currentTarget.value)} type='email' id='email' name='email' placeholder='Email' required />
@@ -16,11 +20,16 @@ const Form = props => {
       <textarea className='pure-input-1' onChange={e => props.setText(e.currentTarget.value)} type='text' id='text' name='text' placeholder='Text' required />
 
       <button type='submit' className='pure-button pure-button-primary'>Submit</button>
+      <ReCAPTCHA
+        ref={recaptchaRef}
+        sitekey='6LcaTmYfAAAAAAuTz3RU83vu-IlW5Fs_GK2AjEnH'
+      />
     </form> 
   )
 }
 
 export default function GetInTouch (props) {
+  const recaptchaRef = React.createRef()
   const [email, setEmail] = useState('')
   const [subject, setSubject] = useState('')
   const [text, setText] = useState('')
@@ -28,16 +37,19 @@ export default function GetInTouch (props) {
 
   const sendEmail = (e) => {
     e.preventDefault()
-    fetch('http://localhost:3001/send', {
-      method: 'POST',
-      body: JSON.stringify({ email, subject, text }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(() => {
-        setSent(true)
+    const recaptchaValue = recaptchaRef.current.getValue()
+    if (recaptchaValue) {
+      fetch('http://localhost:3001/send', {
+        method: 'POST',
+        body: JSON.stringify({ email, subject, text }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
+        .then(() => {
+          setSent(true)
+        })
+    }
   }
 
   return (
@@ -53,6 +65,7 @@ export default function GetInTouch (props) {
                 setSubject={setSubject}
                 setText={setText}
                 sendEmail={sendEmail}
+                recaptchaRef={recaptchaRef}
               />
           </>
         )
