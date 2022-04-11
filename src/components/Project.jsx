@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import Hyphenated from 'react-hyphen'
 
 export default function Project (props) {
   const {
     image,
     name,
-    description
+    description,
+    link
   } = props
   const [hovered, setHovered] = useState(false)
 
@@ -30,6 +32,9 @@ export default function Project (props) {
       style={imageStyle}
       onMouseOver={() => setHovered(true)}
       onMouseOut={() => setHovered(false)}
+      onClick={() => {
+        if (hovered && link) window.open(link, '_blank').focus()
+      }}
     >
       <div
         className='project-content'
@@ -45,7 +50,7 @@ export default function Project (props) {
           className='project-content__description'
           style={descriptionStyle}
         >
-          {description}
+          <Hyphenated>{description}</Hyphenated>
         </div>
       </div>
     </div>

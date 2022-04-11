@@ -22,10 +22,11 @@ export default function Skills (props) {
           Back-end
         </div>
         <div className='skills-container'>
-          <Skill name='NodeJS' progress={100} />
-          <Skill name='MongoDB' progress={90} />
+          <Skill name='NodeJS' progress={50} />
+          <Skill name='MongoDB' progress={60} />
           <Skill name='MySQL' progress={90} />
-          <Skill name='PHP' progress={80} />
+          <Skill name='PHP' progress={70} />
+          <Skill name='MSSQL' progress={90} />
         </div>
       </div>
 
@@ -36,8 +37,8 @@ export default function Skills (props) {
         <div className='skills-container'>
           <Skill name='Git' progress={100} />
           <Skill name='GitHub' progress={90} />
-          <Skill name='Webpack' progress={90} />
-          <Skill name='Jest' progress={80} />
+          <Skill name='Webpack' progress={50} />
+          <Skill name='Jest' progress={40} />
         </div>
       </div>
     </>

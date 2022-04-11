@@ -12,7 +12,13 @@ function App() {
   useEffect(() => {
     WebFont.load({
       google: {
-        families: ['Ubuntu', 'Roboto', 'Open Sans']
+        families: [
+          'Ubuntu',
+          'Roboto',
+          'Open Sans',
+          'Source Sans Pro',
+          'Montserrat'
+        ]
       }
     })
   })

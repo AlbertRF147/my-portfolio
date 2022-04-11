@@ -1,7 +1,9 @@
+@import (css) url('https://unpkg.com/purecss@2.1.0/build/pure-min.css');
 @mobile: ~'(max-width: 414px)';
 @menuItemNameHeight: 20px;
 @menuItemNamePd: 10px;
 @normalSpace: 2rem;
+@borderColor: #00000038;
 
 html, body {
   margin: 0;
@@ -17,6 +19,10 @@ html, body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.content {
+  color: #363636;
 }
 
 .menu-item {
@@ -39,9 +45,7 @@ html, body {
   .name {
     cursor: pointer;
     text-transform: uppercase;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-top: 1.5px solid @borderColor;
     padding: 10px;
     font-weight: 600;
     letter-spacing: 1.5px;
@@ -60,6 +64,7 @@ html, body {
     height: calc(100% - (@menuItemNameHeight + @menuItemNamePd * 2) - 4rem);
     overflow: scroll;
     padding: 2rem 0;
+    background: aliceblue;
 
     &.no-padding {
       padding: 0;
@@ -78,16 +83,35 @@ html, body {
 .about-me {
   &-title {
     margin-top: 0;
+    position: relative;
+    margin-bottom: 4rem;
+    font-size: 2.5rem;
+
+    @media @mobile {
+      margin-left: 2rem;
+      align-self: flex-start;
+      font-size: 2rem;
+    }
+
+    span {
+      position: absolute;
+      bottom: -38px;
+      white-space: nowrap;
+      left: 70%;
+    }
   }
 
   &-content {
-    font-size: 1.3rem;
-    text-align: justify;
+    font-size: 1.4rem;
+    text-align: left;
     margin: 0 25vw;
-    font-family: 'Open Sans';
+    font-family: 'Montserrat';
+    line-height: 2.1rem;
     
     @media @mobile {
       margin: 0 @normalSpace;
+      font-size: 1rem;
+      line-height: 1.4rem;
     }
   }
 
@@ -102,6 +126,7 @@ html, body {
     height: 250px;
     width: 250px;
     shape-margin: 10px;
+    box-shadow: 0px 0px 13px 1px #99999936;
 
     @media @mobile {
       height: calc(250px - 80px);
@@ -123,6 +148,7 @@ html, body {
   justify-content: center;
   margin: @normalSpace 0 0 0;
   cursor: pointer;
+  color: white;
 
   &:first-child {
     margin-top: 0;
@@ -145,19 +171,23 @@ html, body {
   }
 
   &-content {
-    padding: 12px;
+    padding: 12px 44px;
     color: white;
     background: black;
-    opacity: 0.5;
+    opacity: 0.7;
     display: flex;
     flex-direction: column;
     justify-content: center;
     transition: all .07s linear;
 
+    @media @mobile {
+      padding: 12px;
+    }
+
     &__name {
     }
     &__description {
-      text-align: justify;
+      text-align: left;
     }
   }
 }
@@ -193,6 +223,7 @@ html, body {
   border-radius: 6px;
   margin-bottom: 2rem;
   max-width: 700px;
+  background: white;
 
   &-container {
     padding: 0 20px 20px 20px;
@@ -227,5 +258,31 @@ html, body {
   }
   100% {
     background-position: 0;
+  }
+}
+
+.get-in-touch {
+  width: 50%;
+
+  input, textarea {
+    margin: 4px;
+  }
+
+  @media @mobile {
+    width: 80%;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  textarea {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 200px;
+
+    @media @mobile {
+      min-height: 100px;
+    }
   }
 }

@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
+const background = '#007EA7'
+const backgroundActive = '#ABFAA9'
 
 export default function MenuItem (props) {
   const {
     index,
     unClickAll,
-    background,
-    color,
     name,
     first,
     last,
@@ -19,9 +19,9 @@ export default function MenuItem (props) {
   }
 
   const nameStyle = {
-    background: background,
-    borderBottom: clicked ? '1px solid black' : '',
-    color: color
+    background: clicked ? backgroundActive : background,
+    boxShadow: clicked && 'rgb(52 52 52 / 28%) 0px 5px 15px 0px',
+    color: clicked ? 'black' : 'white'
   }
 
   unClickAll.push(() => setClicked(false))
