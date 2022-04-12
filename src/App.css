@@ -131,7 +131,7 @@ body {
   justify-content: center;
   margin: 2rem 0 0 0;
   cursor: pointer;
-  color: white;
+  max-width: 900px;
 }
 .project:first-child {
   margin-top: 0;
