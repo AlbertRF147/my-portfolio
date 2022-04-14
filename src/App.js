@@ -5,8 +5,11 @@ import MenuItem from './components/MenuItem'
 import AboutMe from './components/AboutMe'
 import menuItems from './menuItems'
 import WebFont from 'webfontloader'
+import useVH from 'react-viewport-height'
 
 function App() {
+  useVH() // points to App.less (vh var)
+
   const unClickAll = []
 
   useEffect(() => {
