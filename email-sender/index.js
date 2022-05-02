@@ -7,7 +7,7 @@ const sendEmail = require('./sendEmail')
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'http://albertrf147.com'
 }))
 app.use((err, req, res, next) => {
   console.error(err.stack)
