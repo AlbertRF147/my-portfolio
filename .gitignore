@@ -25,3 +25,7 @@ yarn-error.log*
 
 .dockerignore
 Dockerfile
+
+/email-sender/*.json
+
+/gmail-api

@@ -39,7 +39,7 @@ export default function GetInTouch (props) {
     e.preventDefault()
     const recaptchaValue = recaptchaRef.current.getValue()
     if (recaptchaValue) {
-      fetch(`http://${window.location.hostname}:3001/send`, {
+      fetch(`http://localhost:3000/send`, {
         method: 'POST',
         body: JSON.stringify({ email, subject, text }),
         headers: {

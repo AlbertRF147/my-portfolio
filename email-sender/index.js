@@ -2,12 +2,12 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const port = 3001
-const sendEmail = require('./sendEmail')
+const sendEmail = require('./composeEmail')
 
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors({
-  origin: 'http://albertrf147.com'
+  origin: '*'
 }))
 app.use((err, req, res, next) => {
   console.error(err.stack)
@@ -22,6 +22,7 @@ app.post('/send', async (req, res) => {
       text
     }
   } = req
+
 
   const emailRes = await sendEmail(email, subject, text)
   emailRes
