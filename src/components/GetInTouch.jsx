@@ -22,7 +22,7 @@ const Form = props => {
       <button type='submit' className='pure-button pure-button-primary'>Submit</button>
       <ReCAPTCHA
         ref={recaptchaRef}
-        sitekey='6LcaTmYfAAAAAAuTz3RU83vu-IlW5Fs_GK2AjEnH'
+        sitekey='6LeGWmkfAAAAAGy-M2d24dHqRXu6M6WqTr9fiWh-'
       />
     </form> 
   )
@@ -39,7 +39,7 @@ export default function GetInTouch (props) {
     e.preventDefault()
     const recaptchaValue = recaptchaRef.current.getValue()
     if (recaptchaValue) {
-      fetch('http://localhost:3001/send', {
+      fetch(`http://${window.location.host}/send`, {
         method: 'POST',
         body: JSON.stringify({ email, subject, text }),
         headers: {

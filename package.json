@@ -9,7 +9,8 @@
     "@testing-library/user-event": "^13.5.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
-    "googleapis": "^100.0.0",
+    "googleapis": "^39.2.0",
+    "http-proxy-middleware": "^2.0.6",
     "node-sass": "^7.0.1",
     "nodemailer": "^6.7.3",
     "react": "^17.0.2",
@@ -17,14 +18,16 @@
     "react-google-recaptcha": "^2.1.0",
     "react-hyphen": "^1.4.0",
     "react-scripts": "5.0.0",
+    "react-viewport-height": "^1.2.0",
     "web-vitals": "^2.1.4",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
-    "start": "concurrently --kill-others \"less-watch-compiler --config less-watcher.config.json\" \"react-scripts start\" \"nodemon ./email-sender/index.js\"",
+    "start": "concurrently --kill-others \"less-watch-compiler --config less-watcher.config.json\" \"react-scripts start\" \"node ./email-sender/index.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docker": "docker build -t albertrf147/my-portfolio:v1 . && docker push albertrf147/my-portfolio:v1"
   },
   "eslintConfig": {
     "extends": [
@@ -45,7 +48,7 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^7.0.0",
+    "concurrently": "^7.1.0",
     "less": "^4.1.2",
     "less-watch-compiler": "^1.16.3"
   }
