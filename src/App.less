@@ -4,6 +4,7 @@
 @menuItemNamePd: 10px;
 @normalSpace: 2rem;
 @borderColor: #00000038;
+@avatar: url("./images/profile.jpeg");
 
 html, body {
   margin: 0;
@@ -121,7 +122,7 @@ html, body {
     shape-outside: circle();
     max-height: 400px;
     margin-right: 1rem;
-    background-image: url(https://ca.slack-edge.com/T025J1W63-U02JM7G74CD-25580d9ab8a3-512);
+    background-image: @avatar;
     border-radius: 500px;
     background-size: cover;
     height: 250px;

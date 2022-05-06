@@ -104,7 +104,7 @@ body {
   shape-outside: circle();
   max-height: 400px;
   margin-right: 1rem;
-  background-image: url(https://ca.slack-edge.com/T025J1W63-U02JM7G74CD-25580d9ab8a3-512);
+  background-image: url("./images/profile.jpeg");
   border-radius: 500px;
   background-size: cover;
   height: 250px;

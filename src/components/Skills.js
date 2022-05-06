@@ -39,6 +39,8 @@ export default function Skills (props) {
           <Skill name='GitHub' progress={90} />
           <Skill name='Webpack' progress={50} />
           <Skill name='Jest' progress={40} />
+          <Skill name='Docker' progress={20} />
+          <Skill name='Bash' progress={30} />
         </div>
       </div>
     </>
