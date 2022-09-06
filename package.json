@@ -27,7 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "docker": "docker build -t albertrf147/my-portfolio:v1 . && docker push albertrf147/my-portfolio:v1"
+    "docker": "docker build -t albertrf147/my-portfolio:v1 . && docker push albertrf147/my-portfolio:v1",
+    "deploy": "aws s3 sync build s3://albertrf147-portfolio"
   },
   "eslintConfig": {
     "extends": [
